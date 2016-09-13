@@ -6,6 +6,7 @@
 						<!--<li><a href="" >Empresas/ONG/Universidades</a></li>
 						<li><a href="" >Proveedores</a></li>-->
 						<li><a href="suscriptores.php">Contactos</a></li>
+						<li><a href="extranjeros.php">Extranjeros</a></li>
 					</ul>
 			</div>
 </aside>
