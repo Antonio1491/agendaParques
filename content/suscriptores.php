@@ -7,24 +7,31 @@
 	<?php include'inc/head.php'; ?>
 <body>
 <?php include'inc/header_comoon.php'; ?>
-	<div class="row">
-		<?php include 'inc/aside.php'; ?>
-		<section>
-			<div class="col s12 m8 l10">	<!-- contenido de registros-->
+	<div class="row ">
+		<section class="formulario">
+			<div class="col s12 m12 l12">	<!-- contenido de registros-->
 			<h3 class="center-align">Registro de Contactos</h3>
 			<form method="POST" action="registroContactos.php">
 				<div class="row">
-					<div class="input-field col s12 m6 l4">
+					<div class="input-field col s12 m6 l1">
+						<label></label>
+						<select class="browser-default" name="tipo">
+							<option value="" disabled selected>Tipo</option>
+							<option value="Persona">Persona</option>
+							<option value="Empresa">Empresa</option>
+						</select>
+					</div>
+					<div class="input-field col s12 m6 l3">
 						<input type="text" id="nombre" name="nombre" class="validate"></input>
-						<label>Nombre completo:</label>
+						<label>Nombre:</label>
 					</div>
-					<div class="input-field col s12 m6 l4">
+					<div class="input-field col s12 m6 l3">
 						<input type="text" id="empresa" name="empresa" class="validate"></input>
-						<label>Empresa:</label>
+						<label>Empresa/Dependencia:</label>
 					</div>
-					<div class="input-field col s12 m6 l4">
+					<div class="input-field col s12 m6 l3">
 						<input type="text" id="cargo" name="cargo" class="validate"></input>
-						<label>Cargo:</label>
+						<label>Cargo/Puesto:</label>
 					</div>
 				</div>
 				<div class="row">
@@ -52,27 +59,27 @@
 					</div>
 				</div>
 				<div class="row">
+					<div class="input-field col s12 m6 l2">
+						<input id="pais" name="pais" type="text" class="validate" autocomplete="on"></input>
+						<label for="">País:</label>
+					</div>
+					<div class="input-field col s12 m6 l2">
+						<input id="localidad" name="localidad" type="text" class="validate" autocomplete="on" required></input>
+						<label for="">Localidad:</label>
+					</div>
 					<div class="input-field col s12 m6 l4">
 						<input id="direccion" name="direccion" type="text" class="validate" autocomplete="off" required></input>
 						<label for="">Dirección:</label>
 					</div>
-					<div class="input-field col s12 m6 l4">
-						<input id="ciudad" name="ciudad" type="text" class="validate" autocomplete="on" required></input>
-						<label for="">Ciudad:</label>
-					</div>
-					<div class="input-field col s12 m6 l4">
-						<input id="estado" name="estado" type="text" class="validate" autocomplete="on"></input>
-						<label for="">Estado:</label>
-					</div>
-				</div>
-				<div class="row">
 					<div class="input-field col s12 m6 l2">
 						<input id="cpostal" name="cpostal" type="text" class="validate" autocomplete="on" required></input>
 						<label for="">C.P.:</label>
 					</div>
-					<div class="input-field col s12 m6 l2">
-						<input id="pais" type="text" name="pais" class="validate" autocomplete="on" required></input>
-						<label for="">País:</label>
+				</div>
+				<div class="row">
+					<div class="input-field col s12 m6 l10">
+						<textarea id="comentarios" class="materialize-textarea" length="300" name="comentarios"></textarea>
+            <label for="textarea1">Comentarios:</label>
 					</div>
 				</div>
 				<div class="row  center-align">

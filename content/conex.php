@@ -13,8 +13,8 @@ if (!$conectar) {
 	echo "Error: Imposible conectar con la Base de Datos";
 }
 else{
-	mysql_query("SET NAMES utf8");
 	mysql_select_db($baseDeDatos);
+	mysql_set_charset('utf8');
 }
 
 ?>

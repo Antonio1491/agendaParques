@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,12 +6,33 @@
 	<title>SR-ANPR</title>
 	<!-- Compiled and minified CSS -->
 	<?php include'inc/head.php'; ?>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#email').blur(function(){
+
+			$('#Info').html('<img src="inc/loader.gif" alt="" />').fadeOut(1000);
+
+			var email = $(this).val();
+			var dataString = 'email='+email;
+
+			$.ajax({
+	            type: "POST",
+	            url: "inc/check_username_availablity.php",
+	            data: dataString,
+	            success: function(data) {
+					$('#Info').fadeIn(1000).html(data);
+					//alert(data);
+	            }
+	        });
+	    });
+	});
+	</script>
 	<body>
   	<?php    include 'inc/header_comoon.php';  	?> <!-- header azul-->
 	<div class="row">
-	<?php include 'inc/aside.php'; ?>
+
 		<section>
-			<div class="col s12 m8 l10">	<!-- contenido de registros-->
+			<div class="col s12 m12 l12">	<!-- contenido de registros-->
 				<article>
 					<h3 class="center-align">Registro de Gobierno</h3>
 					<div class="row">
@@ -70,15 +90,16 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s12 m6 l2">
-							<input id="" name="email" type="text" class="validate" required autocomplete="off">
+							<input id="email" name="email" type="text" class="validate" required autocomplete="off">
 							<label for=""  >E-mail:</label>
 							</input>
 						</div>
-						<div class="input-field col s12 m6 l2">
+						<div id="Info" class="col s12 m6 l3"></div>
+						<!--<div class="input-field col s12 m6 l2">
 							<input id="" name="email2" type="text" class=""  autocomplete="off">
 							<label for=""  >E-mail opcional:</label>
 							</input>
-						</div>
+						</div>-->
 					</div>
 
 					<div class="row">

@@ -21,11 +21,10 @@ $fecha=date("Y-m-d");
 
 
 $sql="INSERT INTO todo (gobierno, estado, web, nombreEncargado, cargo, vigencia, telefono, extencion, email, emailOpcional, colonia, direccion, numExterior, cp, fechaCaptura) VALUES ('$gobierno', '$estado', '$web', '$encargado', '$cargo', '$vigencia', '$tel', '$extencion', '$email','$email2', '$colonia', '$dir','$numExterior','$cp','$fecha')";
+mysql_query($sql);
 
-ejecutar_sql($sql);
-
-echo"<script language='JavaScript'> 
-                alert('Hemos registrado al nuevo contacto correctamente'); 
+echo"<script language='JavaScript'>
+                alert('Hemos registrado al nuevo contacto correctamente');
                 </script>";
 echo "<script>window.location=\"index.php\"</script>";
 

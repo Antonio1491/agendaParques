@@ -3,7 +3,7 @@ include 'conex.php';
 /*include 'funciones.php';
 /*$link=mysql_connect('localhost','root','');
 mysql_select_db('anpr',$link);*/
-
+$tipo=$_POST["tipo"];
 $nombre=$_POST["nombre"];
 $empresa=$_POST["empresa"];
 $cargo=$_POST["cargo"];
@@ -12,14 +12,15 @@ $email=$_POST["email"];
 $tel=$_POST["tel"];
 $extencion=$_POST["extencion"];
 $cel=$_POST["cel"];
-$direccion=$_POST["direccion"];
-$ciudad=$_POST["ciudad"];
-$estado=$_POST["estado"];
-$cpostal=$_POST["cpostal"];
 $pais=$_POST["pais"];
+$localidad=$_POST["localidad"];
+$direccion=$_POST["direccion"];
+$cpostal=$_POST["cpostal"];
+$comentarios=$_POST["comentarios"];
+$date=date("Y-m-d");
 
-$consulta="INSERT INTO contactos (nombre, empresa, cargo, web, email, tel, extencion, cel, direccion, ciudad, estado, cpostal, pais) VALUES
-('$nombre', '$empresa', '$cargo', '$web', '$email', '$tel', '$extencion', '$cel', '$direccion', '$ciudad', '$estado', '$cpostal', '$pais')";
+$consulta="INSERT INTO contactos (tipo, nombre, empresa, cargo, web, email, tel, extencion, cel, direccion, ciudad, cpostal, pais, comentarios, fechaCaptura) VALUES
+('$tipo', '$nombre', '$empresa', '$cargo', '$web', '$email', '$tel', '$extencion', '$cel', '$direccion', '$localidad', '$cpostal', '$pais', '$comentarios', '$date')";
 
 mysql_query($consulta);
 
