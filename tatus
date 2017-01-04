@@ -1,0 +1,23 @@
+[33mcommit 2ba529730b064527ec16c0ed002a14a541d92670[m
+Author: Antonio Góngora <antonio.gongora1491@gmail.com>
+Date:   Wed Jan 4 17:12:24 2017 -0600
+
+    Actualización, ordenamiento de campos y comprobación de usuarios registrados a través del email
+
+[33mcommit 4386542303952d32dcd7017bc856f2b97baa6fa0[m
+Author: Antonio Góngora <antonio.gongora1491@gmail.com>
+Date:   Fri Oct 7 12:35:21 2016 -0500
+
+    Actualizaión de la agenda con inicio de sesión completa
+
+[33mcommit 82de046c906d789dbf3acc62d1aa78c561b82717[m
+Author: Antonio Góngora <antonio.gongora1491@gmail.com>
+Date:   Tue Sep 13 17:17:02 2016 -0500
+
+    Seccion registro de extranjeros creada
+
+[33mcommit 92cf71c437b0eeaf186666e6fa90e615cf7eca45[m
+Author: Antonio Góngora <antonio.gongora1491@gmail.com>
+Date:   Tue Sep 13 13:19:19 2016 -0500
+
+    Estos son los archivos iniciales para la agenda. Registro de contactos en Base de Datos. Registra contactos y personas degobierno

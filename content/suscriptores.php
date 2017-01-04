@@ -22,30 +22,30 @@
 						</select>
 					</div>
 					<div class="input-field col s12 m6 l3">
-						<input type="text" id="nombre" name="nombre" class="validate"></input>
-						<label>Nombre:</label>
-					</div>
-					<div class="input-field col s12 m6 l3">
 						<input type="text" id="empresa" name="empresa" class="validate"></input>
 						<label>Empresa/Dependencia:</label>
 					</div>
-					<div class="input-field col s12 m6 l3">
-						<input type="text" id="cargo" name="cargo" class="validate"></input>
-						<label>Cargo/Puesto:</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s12 m6 l4">
-						<input type="text" id="web" name="web" class="validate"></input>
-						<label>Sitio web:</label>
-					</div>
-					<div class="input-field col s12 m6 l4">
+					<div class="input-field col s12 m6 l2">
 						<input id="email" name="email" type="text" class="validate" required autocomplete="off"></input>
 						<label for=""  >E-mail:</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s12 m6 l3">
+						<input type="text" id="nombre" name="nombre" class="validate"></input>
+						<label>Nombre:</label>
+					</div>
+					<div class="input-field col s12 m6 l2">
+						<input type="text" id="cargo" name="cargo" class="validate"></input>
+						<label>Cargo/Puesto:</label>
+					</div>
+					<div class="input-field col s12 m6 l2">
+						<input type="text" id="web" name="web" class="validate"></input>
+						<label>Sitio web:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12 m6 l2">
 						<input id="tel" name="tel" type="tel" class="validate" autocomplete="off"></input>
 						<label for="">Teléfono:</label>
 					</div>
@@ -53,21 +53,21 @@
 						<input id="extencion" name="extencion" type="tel" class="validate" autocomplete="off"></input>
 						<label for="">Extención:</label>
 					</div>
-					<div class="input-field col s12 m6 l4">
+					<div class="input-field col s12 m6 l2">
 						<input id="cel" name="cel" type="tel" class="validate" autocomplete="off"></input>
 						<label for="">Móvil:</label>
 					</div>
-				</div>
-				<div class="row">
 					<div class="input-field col s12 m6 l2">
 						<input id="pais" name="pais" type="text" class="validate" autocomplete="on"></input>
 						<label for="">País:</label>
 					</div>
+				</div>
+				<div class="row">
 					<div class="input-field col s12 m6 l2">
 						<input id="localidad" name="localidad" type="text" class="validate" autocomplete="on" required></input>
 						<label for="">Localidad:</label>
 					</div>
-					<div class="input-field col s12 m6 l4">
+					<div class="input-field col s12 m6 l3">
 						<input id="direccion" name="direccion" type="text" class="validate" autocomplete="off" required></input>
 						<label for="">Dirección:</label>
 					</div>
@@ -77,7 +77,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="input-field col s12 m6 l10">
+					<div class="input-field col s12 m6 l7">
 						<textarea id="comentarios" class="materialize-textarea" length="300" name="comentarios"></textarea>
             <label for="textarea1">Comentarios:</label>
 					</div>
