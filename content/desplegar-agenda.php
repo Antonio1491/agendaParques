@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,9 +9,32 @@ include'inc/head.php';
 include'inc/header_comoon.php';
 include 'conex.php';
 ?>
+<script type="text/javascript">
+	function busqueda(str)
+	{
+		var xmlhttp;
+			if (str.length==0) {
+				document.getElementById("resultado").innerHTML="";
+				return;
+			}
+			if (window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+			}
+			else{
+				xmlhttp= new ActiveXObject("Microsoft.XHMLHTTP");
+			}
+		xmlhttp.onreadystatechange=function(){
+			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+				document.getElementById("resultado").innerHTML=xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("GET","buscar-gobiernos.php?b="+str, true)
+		xmlhttp.send();
+	}
+</script>
 <body>
-	<div class="row">
-		<div class="col s4  offset-s5">
+	<div class="center-align">
+    <h3>Agenda Gobierno</h3>
 			<a href="inc/exportar-gobiernos.php">
 				<button class="btn btn-primary" >
 					<span class="flow-text">Exportar </span>
@@ -22,7 +44,12 @@ include 'conex.php';
 			</span>
 		</div>
 	</div>
-  <div class="row">
+	<div class="row offset-s1">
+		<label for="search"><i class="material-icons">search</i></label>
+		<input type="search" class="col l3" onkeyup="busqueda(this.value)"></input>
+	</div>
+<div id="resultado">
+  <div class="row ">
     <section>
     <div class="col s12 m8 l12">	<!-- contenido de registros-->
 <?php
@@ -40,11 +67,11 @@ echo "<table class='striped responsive-table ancho'>
       ";
 while($row=mysql_fetch_array($resultado)){
   echo "<tr>
-  <td>".utf8_encode($row['gobierno'])."</td>
-  <td>".utf8_encode($row['estado'])."</td>
-  <td>".utf8_encode($row['nombreEncargado'])."</td>
-  <td>".utf8_encode($row['vigencia'])."</td>
-  <td>".utf8_encode($row['email'])."</td>
+  <td>".$row['gobierno']."</td>
+  <td>".$row['estado']."</td>
+  <td>".$row['nombreEncargado']."</td>
+  <td>".$row['vigencia']."</td>
+  <td>".$row['email']."</td>
 	<td><a href='ver-mas.php?folio=".$row['folio']."' id='vermas'>Ver más</a></td>
 	<td><a href='inc/eliminar.php?folio=".$row['folio']."' id='eliminar'>Eliminar<a/></td></tr>";
 
@@ -52,6 +79,8 @@ while($row=mysql_fetch_array($resultado)){
 echo "</table>";
 include'inc/footer.php';
 ?>
-
+			</div>
+		</div>
+	</div>
 </body>
 </html>

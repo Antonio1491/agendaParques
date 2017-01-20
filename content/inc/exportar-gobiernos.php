@@ -1,3 +1,7 @@
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+</head>
 <?php
 include '../conex.php';
 
@@ -65,3 +69,4 @@ while($row = mysql_fetch_array($consulta)){
 }
 echo "</table> ";
 ?>
+</html>

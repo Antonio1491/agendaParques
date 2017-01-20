@@ -14,7 +14,7 @@ if (!$conectar) {
 }
 else{
 	mysql_select_db($baseDeDatos);
-	mysql_set_charset('utf8');
+	mysql_query("SET NAMES 'utf8'");
 }
 
 ?>

@@ -5,6 +5,24 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Suscriptores</title>
 	<?php include'inc/head.php'; ?>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#email').blur(function(){
+			$('#Info').html('<img src="inc/loader.gif" alt="" />').fadeOut(1000);
+			var email = $(this).val();
+			var dataString = 'email='+email;
+			$.ajax({
+	            type: "POST",
+	            url: "inc/verificacion-contacto-existente.php",
+	            data: dataString,
+	            success: function(data) {
+					$('#Info').fadeIn(1000).html(data);
+					//alert(data);
+	            }
+	        });
+	    });
+	});
+	</script>
 <body>
 <?php include'inc/header_comoon.php'; ?>
 	<div class="row ">
@@ -13,25 +31,27 @@
 			<h3 class="center-align">Registro de Contactos</h3>
 			<form method="POST" action="registroContactos.php">
 				<div class="row">
-					<div class="input-field col s12 m6 l1">
+					<div class="input-field col s12 m6 l1 offset-l1">
 						<label></label>
-						<select class="browser-default" name="tipo">
+						<select class="browser-default" name="tipo" required>
 							<option value="" disabled selected>Tipo</option>
 							<option value="Persona">Persona</option>
 							<option value="Empresa">Empresa</option>
 						</select>
 					</div>
 					<div class="input-field col s12 m6 l3">
-						<input type="text" id="empresa" name="empresa" class="validate"></input>
+						<input type="text" id="empresa" required name="empresa" class="validate"></input>
 						<label>Empresa/Dependencia:</label>
 					</div>
 					<div class="input-field col s12 m6 l2">
 						<input id="email" name="email" type="text" class="validate" required autocomplete="off"></input>
 						<label for=""  >E-mail:</label>
 					</div>
+					<div id="Info" class="col s12 m6 l2"></div>
+
 				</div>
 				<div class="row">
-					<div class="input-field col s12 m6 l3">
+					<div class="input-field col s12 m6 l3 offset-l1">
 						<input type="text" id="nombre" name="nombre" class="validate"></input>
 						<label>Nombre:</label>
 					</div>
@@ -45,7 +65,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="input-field col s12 m6 l2">
+					<div class="input-field col s12 m6 l2 offset-l1">
 						<input id="tel" name="tel" type="tel" class="validate" autocomplete="off"></input>
 						<label for="">Teléfono:</label>
 					</div>
@@ -63,22 +83,32 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="input-field col s12 m6 l2">
+					<div class="input-field col s12 m6 l2 offset-l1">
 						<input id="localidad" name="localidad" type="text" class="validate" autocomplete="on" required></input>
-						<label for="">Localidad:</label>
+						<label for="">Ciudad/Localidad:</label>
 					</div>
 					<div class="input-field col s12 m6 l3">
 						<input id="direccion" name="direccion" type="text" class="validate" autocomplete="off" required></input>
 						<label for="">Dirección:</label>
 					</div>
-					<div class="input-field col s12 m6 l2">
+					<div class="input-field col s12 m6 l2 ">
 						<input id="cpostal" name="cpostal" type="text" class="validate" autocomplete="on" required></input>
 						<label for="">C.P.:</label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="input-field col s12 m6 l7">
-						<textarea id="comentarios" class="materialize-textarea" length="300" name="comentarios"></textarea>
+					<div class="input-field col s12 m6 l3 offset-l1">
+						<input id="fb" name="fb" type="text" class="validate" autocomplete="off" ></input>
+						<label for="">Facebook:</label>
+					</div>
+					<div class="input-field col s12 m6 l3">
+						<input id="tw" name="tw" type="text" class="validate" autocomplete="off" ></input>
+						<label for="">Twitter:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12 m6 l7 offset-l1">
+						<textarea id="comentarios" class="materialize-textarea" length="500" name="comentarios"></textarea>
             <label for="textarea1">Comentarios:</label>
 					</div>
 				</div>
