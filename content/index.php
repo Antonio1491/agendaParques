@@ -1,15 +1,18 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>SR-ANPR</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Agenda</title>
+<?php include 'inc/head.php';
+
+?>
 	<!-- Compiled and minified CSS -->
-	<?php include'inc/head.php'; ?>
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$('#email').blur(function(){
-
 			$('#Info').html('<img src="inc/loader.gif" alt="" />').fadeOut(1000);
 
 			var email = $(this).val();
@@ -28,117 +31,145 @@
 	});
 	</script>
 	<body>
-  	<?php    include 'inc/header_comoon.php';  	?> <!-- header azul-->
-	<div class="row">
+	<?php
+	require_once 'inc/encabezado.php';
+	?>
 		<section class="formulario ">
-			<div class="col s12 m12 l12">	<!-- contenido de registros-->
+			<div class="">	<!-- contenido de registros-->
 				<article>
-					<h3 class="center-align">Registro de Gobierno</h3>
+					<h3 class="text-center">Registro</h3>
 					<form method="POST" action="registrar.php">
 						<div id="Info" class="row"></div>
 						<div class="row">
-							<div class="input-field col s12 m6 l2 offset-l1">
-								<input id="email" name="email" type="text" class="validate" required autocomplete="off">
-								<label for=""  >E-mail:</label>
+							<div class="column medium-2">
+								<label for=""><span>*</span>Categoría:</label>
+								<select name="categoria" required>
+								<?php
+                //$conectar=mysqli_connect("localhost","anprorgm_admin","Admin_*2016","anprorgm_registros");
+                $conectar=mysqli_connect("localhost","root","", "anpr");
+                mysqli_set_charset($conectar,"utf8");
+                if(!$conectar){
+                  die ("Error en la conexión a la Base de Datos");
+                }
+                else{
+								$sql="SELECT * FROM categoria ORDER BY categoria_id DESC";
+								$resultado= mysqli_query($conectar, $sql);
+								while($fila= mysqli_fetch_array($resultado)){
+									echo "<option value=".$fila['categoria_id'].">".$fila['nombre']."</option>";
+									}
+                }
+								 ?>
+								</select>
+							</div>
+							<div class="column">
+								<label for=""><span>*</span>Nombre:</label>
+								<input id="" name="nombre" type="text" class="validate" required autocomplete="off">
 								</input>
 							</div>
-							<div class="input-field col s12 m6 l2">
-								<input id="" type="text" class="validate" autofocus required autocomplete="on" name="gobierno">
-								<label for="">Municipio/Delegación:</label>
+							<div class="column medium-4">
+								<label for=""  ><span>*</span>E-mail:</label>
+								<input id="email" name="email" type="text" class="validate" autocomplete="off" required>
 								</input>
 							</div>
-							<div class="input-field col s12 m6 l2">
-								<input id="" type="text" class="validate" required autocomplete="on" name="estado">
-								<label for="">Estado:</label>
-								</input>
-							</div>
-							<div class="input-field col s12 m6 l2">
-								<input id="" type="text" class="validate" required autocomplete="on" name="dependencia">
-								<label for="">Dependencia:</label>
-								</input>
-							</div>
+
 						</div>
 						<div class="row">
-							<div class="input-field col s12 m6 l2 offset-l1">
-								<input id="" name="web" type="text" class="" autocomplete="off">
+							<div class="column">
+								<label for="">Dependencia/Empresa:</label>
+								<input id="" type="text" class="validate"  autocomplete="on" name="empresa">
+								</input>
+							</div>
+							<div class="column">
+								<label for="">Cargo/Puesto:</label>
+								<input id="" name="cargo" type="text" class=""></input>
+							</div>
+							<div class="column">
 								<label for="">Sitio web:</label>
+								<input id="" name="web" type="text" class="" autocomplete="off">
 								</input>
 							</div>
-							<div class="input-field col s12 m6 l2">
-								<input id="" name="encargado" type="text" class="validate" required autocomplete="off">
-								<label for="">Nombre del Encargado:</label>
-								</input>
-							</div>
-							<div class="input-field col s12 m6 l2">
-								<input id="" name="cargo" type="text" class="">
-								<label for="">Cargo:</label>
+							<div class="column medium-2">
+								<label form="" >Vigencia del cargo</label>
+								<input id="" type="text" class="validate"  name="vigencia" placeholder="Año" >
 								</input>
 							</div>
 						</div>
 						<div class="row">
-							<div class="input-field col s12 m6 l2 offset-l1">
-								<label form="" > Año de Vigencia</label>
-								<input id="" type="number" class="validate"  name="vigencia" min="2016" max="2030">
-								</input>
-							</div>
-							<div class="input-field col s12 m6 l2">
-								<input id="" name="tel" type="text" class="" autocomplete="off">
+							<div class="column column medium-3">
 								<label for="">Teléfono:</label>
-								</input>
+								<input id="" name="tel" type="text" class="" autocomplete="off"></input>
 							</div>
-							<div class="input-field col s12 m6 l1">
-								<input id="" name="extencion" type="text" class="" autocomplete="off">
+							<div class="column medium-2">
 								<label for="">Ext.:</label>
-								</input>
+								<input id="" name="extencion" type="text" class="" autocomplete="off"></input>
+							</div>
+							<div class="column column medium-3">
+								<label for="">Móvil:</label>
+								<input id="cel" name="cel" type="tel" class="validate" autocomplete="off"></input>
+							</div>
+							<div class="column">
+								<label for="">Origen:</label>
+							     <select name="origen">
+                     <option value="Nacional">Nacional</option>
+                     <option value="Extranjero">Extranjero</option>
+                  </select>
 							</div>
 						</div>
+
 						<div class="row">
-							<div class="input-field col s12 m6 l2 offset-l1">
-								<input id="" name="colonia" type="text" class="validate" required autocomplete="off">
+							<div class="column">
+								<label for="">Estado:</label>
+								<input id="" type="text" class="validate"  autocomplete="on" name="estado">
+								</input>
+							</div>
+							<div class="column">
+								<label for="">Ciudad/Municipio/Delegación:</label>
+								<input id="" type="text" class="validate"  autocomplete="on" name="municipio">
+								</input>
+							</div>
+							<div class="column">
 								<label for="">Colonia:</label>
+								<input id="" name="colonia" type="text" class="validate"  autocomplete="off">
 								</input>
 							</div>
-							<div class="input-field col s12 m6 l2">
-								<input name="direccion" id="" type="text" class="validate" required >
+						</div>
+
+						<div class="row">
+							<div class="column medium-5">
 								<label for="">Dirección:</label>
-								</input>
+								<input name="direccion" id="" type="text" class="validate"  placeholder="Calle | # | Cruzamientos | Referencias"></input>
 							</div>
-							<div class="input-field col s12 m6 l1">
-								<input id="" name="numExterior" type="text" class="validate" >
-								<label for="">Núm. Exterior:</label>
-								</input>
-							</div>
-							<div class="input-field col s12 m6 l1">
-								<input id="" name="cp" type="text" class="validate" required >
+							<div class="column medium-2">
 								<label for="">C.P.:</label>
-								</input>
+								<input id="" name="cp" type="text" class="validate"  ></input>
 							</div>
 						</div>
 						<div class="row">
-							<div class="input-field col s12 m6 l3 offset-l1">
-								<input id="fb" name="fb" type="text" class="validate" autocomplete="off" ></input>
+							<div class="column">
 								<label for="">Facebook:</label>
+								<input id="fb" name="fb" type="text" class="validate" autocomplete="off" ></input>
+
 							</div>
-							<div class="input-field col s12 m6 l3">
-								<input id="tw" name="tw" type="text" class="validate" autocomplete="off" ></input>
+							<div class="column">
 								<label for="">Twitter:</label>
+								<input id="tw" name="tw" type="text" class="validate" autocomplete="off" ></input>
 							</div>
 						</div>
 						<div class="row">
-							<div class="input-field col s12 m6 l7 offset-l1">
-								<textarea id="comentarios" class="materialize-textarea" length="500" name="comentarios"></textarea>
+							<div class="column">
 								<label for="textarea1">Comentarios:</label>
+								<textarea id="comentarios" class="" length="500" name="comentarios" placeholder="Proyectos | Giro de la empresa | Palabras clave | Productos que ofrece"></textarea>
 							</div>
 						</div>
-						<div class="row  center-align">
-								<button class="btn waves-effect waves-light" type="submit"  name="action" >Registrar</button>
+						<div class="row align-center">
+								<button class="button large" type="submit"  name="action" >Registrar</button>
 						</div>
 					</form>
 				</article>
 			</div>
 		</section>
-	</div>
-</div><!-- fin de id resultado-->
+
+</div><!-- fin de id resultado del header_comoon-->
 <?php include'inc/footer.php';?>
 </body>
 </html>

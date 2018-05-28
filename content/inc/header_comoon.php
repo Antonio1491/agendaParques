@@ -1,31 +1,55 @@
-<?php session_start(); ?>
-<header>
-	<ul id="opciones" class="dropdown-content">
-		<li><a href="inc/closet.php"><i class="tiny material-icons">power_settings_new</i>Salir</a></li>
-		<!--<li><a href="#">Exportar contactos</a></li>-->
-	</ul>
-	<ul id="gobiernos" class="dropdown-content">
-		<li><a href="index.php">Agregar</a></li>
-		<li><a href="desplegar-agenda.php">Visualizar</a></li>
-	</ul>
-	<ul id="contactos" class="dropdown-content">
-		<li><a href="suscriptores.php">Agregar</a></li>
-		<li><a href="desplegar-contactos.php">Visualizar</a></li>
-	</ul>
-	<nav class="light-blue darken-4">
-		<div class="nav-wrapper">
-	      <a href="index.php" class="brand-logo" id="anpr">Agenda Parques de México</a>
-				<ul class="right hide-on-med-and-down">
-					<!--<li><a href="#"><i class="material-icons">search</i></a></li>-->
-					<li><a class="dropdown-button" href="#!" data-activates="gobiernos">GOBIERNOS<i class="material-icons right">arrow_drop_down</i></a></li>
-					<li><a class="dropdown-button" href="#!" data-activates="contactos">CONTACTOS<i class="material-icons right">arrow_drop_down</i></a></li>
-	      <!-- <li><a href="#"><i class="material-icons">refresh</i></a></li>-->
-	        <li><a href="#" class="dropdown-button" data-activates="opciones"><i class="tiny material-icons">more_vert</i></a></li>
-	      </ul>
-	    </div>
-	</nav>
-	<div class="" id="informacionDeUsuario">
-			<?php echo "<p>Hola ".$_SESSION['user']. "</p>"; ?>
+<?php session_start();?>
+<!doctype html>
+<html class="no-js" lang="es" dir="ltr">
+<head>
+	<meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda</title>
+  <link rel="stylesheet" href="css/foundation-flex.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/css.css">
 
-	</div>
-</header>
+	<script src="js/vendor/jquery.js"></script>
+ 	<script src="js/vendor/what-input.js"></script>
+ 	<script src="js/vendor/foundation.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  </head>
+	<?php include "conex.php"; ?>
+  <body>
+    <header>
+      <div class="row expanded">
+        <div class="column">
+          <small>Agenda Parques de México</small>
+        </div>
+        <div class="column">
+          <ul class="menu">
+            <li><a href="index.php">Registrar</a></li>
+            <li><a href="agenda.php">Visualizar</a></li>
+          </ul>
+        </div>
+				<div class="column">
+          <?php
+
+          echo "<p>Hola ".$_SESSION['user']. "</p>";
+          ?>
+        </div>
+
+				<div class="column medium-2">
+					<form class="" action="" method="post">
+		        Buscar:
+		        <input type="search" value="" onkeyup="busqueda(this.value)"></input>
+				</div>
+		    </form>
+
+      </div>
+    </header>
+    <!--<form class="" action="" method="post">
+      <div class="row column medium-2 small-8 buscar">
+        <div class="column shrink" id="bus">Buscar:</div>
+        <div class="column"><input type="search" value="" onkeyup="busqueda(this.value)"></input></div>
+      </div>
+    </form>-->
+    <div class="" id="contenido">

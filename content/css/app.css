@@ -1,0 +1,79 @@
+body {
+  color: #3f4d42; }
+
+header {
+  background: #325E7E;
+  color: white; }
+
+header small {
+  font-size: 1.2em; }
+
+header a {
+  color: #c3f5cf; }
+
+h5 {
+  margin-top: 2em;
+  margin-bottom: 1em; }
+
+label {
+  color: #4b5052; }
+
+legend {
+  font-weight: bold; }
+
+.formato-fecha {
+  color: #bac1bd; }
+
+.radiobtn {
+  padding-top: 1.7em; }
+
+.tarjeta-titulo {
+  font-weight: 600;
+  color: #3f4d42;
+  margin-top: 1.3em; }
+
+hr {
+  margin-top: 0;
+  margin-bottom: .2em; }
+
+.gris {
+  color: #666a67; }
+
+.buscar {
+  margin-top: 10px;
+  float: left; }
+
+#bus {
+  padding-top: .4em;
+  font-weight: 600; }
+
+#contenido {
+  margin-top: 3em; }
+
+.tabla .contenedor {
+  overflow: auto; }
+
+.tabla {
+  margin: 50px 20px;
+  font-size: 10px; }
+
+.tabla tr {
+  width: 100vw; }
+
+.tabla-agenda th #nombre {
+  width: 100px !important; }
+
+.tabla-agenda th #cp {
+  width: 50px; }
+
+/*============================= directorio =================== */
+.pacifico {
+  font-family: 'Pacifico', cursive;
+  padding-top: .25em; }
+
+.mayus {
+  text-transform: uppercase;
+  font-size: 12px; }
+
+.tabla-agenda th {
+  color: #325E7E; }

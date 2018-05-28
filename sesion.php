@@ -16,7 +16,6 @@ else{
   echo $resultado;
 }
 
-
 /*$usuario=$_POST["usuario"];
 $contrasena=$_POST["contrasena"];
 $link = mysqli_connect('localhost', 'root', '','anpr');

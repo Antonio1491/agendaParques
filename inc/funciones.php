@@ -1,7 +1,7 @@
 <?php
 //verificamo el usuario y contraseña
 function login($nombre, $clave){
-  /* $link = mysqli_connect('localhost', 'anprorgm_admin', 'Admin_*2016','anprorgm_registros');*/   // conexion internet
+   // $link = mysqli_connect('localhost', 'anprorg_admin', 'Admin_*2016','anprorg_registros');   // conexion internet
  $link = mysqli_connect('localhost', 'root', '','anpr');
   $sql="SELECT * FROM usuarios WHERE nombre='$nombre' AND contrasena = '$clave'";
   $result=mysqli_query($link, $sql);

@@ -1,38 +1,40 @@
 <?php
-include 'inc/head.php';
-include 'inc/header_comoon.php';
-//include 'conex.php';
 
+$categoria=$_POST["categoria"];
+$nombre=$_POST["nombre"];
 $email=$_POST["email"];
-$gobierno=$_POST["gobierno"];
-$estado=$_POST["estado"];
-$dependencia=$_POST["dependencia"];
-$web=$_POST["web"];
-$encargado=$_POST["encargado"];
+$empresa=$_POST["empresa"];
 $cargo=$_POST["cargo"];
+$web=$_POST["web"];
 $vigencia=$_POST["vigencia"];
 $tel=$_POST["tel"];
 $extencion=$_POST["extencion"];
+$cel=$_POST["cel"];
+$pais=$_POST["pais"];
+$estado=$_POST["estado"];
+$municipio=$_POST["municipio"];
 $colonia=$_POST["colonia"];
-$dir=$_POST["direccion"];
-$numExterior=$_POST["numExterior"];
+$direccion=$_POST["direccion"];
 $cp=$_POST["cp"];
 $fb=$_POST["fb"];
 $tw=$_POST["tw"];
 $comentarios=$_POST["comentarios"];
 
+$usuario=$_SESSION['user'];
+
 $date=date("Y-m-d");
 
 //echo $gobierno,  $estado,  $dependencia,  $web,  $encargado,  $cargo,  $vigencia,  $tel,  $extencion,  $email,  $colonia,  $dir,  $numExterior,  $cp,  $fb,  $tw,  $comentarios,  $date;
-
-$conexion=mysqli_connect("localhost","anprorgm_admin", "Admin_*2016", "anprorgm_registros");
-if(!$conexion){
-  die ("Error de conexión");
+$conectar=mysqli_connect("localhost","root","", "anprorgm_registros");
+mysqli_set_charset($conectar,"utf8");
+if(!$conectar){
+  die ("Error en la conexión a la Base de Datos");
 }
-else {
-  $sql="INSERT INTO todo( gobierno, estado, dependencia, web, nombreEncargado, cargo, vigencia, telefono, extencion, email, colonia, direccion, numExterior, cp, Fb, Tw, comentarios, fechaCaptura )
-VALUES ('$gobierno',  '$estado',  '$dependencia',  '$web',  '$encargado',  '$cargo',  '$vigencia',  '$tel',  '$extencion',  '$email',  '$colonia',  '$dir',  '$numExterior',  '$cp',  '$fb',  '$tw',  '$comentarios',  '$date')";
-  mysqli_query($conexion,$sql);
+else{
+  $sql="INSERT INTO datos( categoria_id, nombre, email, tel, ext, cel, empresa, cargo, web, vigencia, pais, estado, municipio, colonia, direccion, cp, fb, tw, comentario, usuario, fecha_captura )
+VALUES ('$categoria',  '$nombre',  '$email', '$tel', '$extencion',  '$cel', '$empresa',  '$cargo',  '$web',  '$vigencia',  '$pais',  '$estado',  '$municipio',  '$colonia', '$direccion', '$cp',  '$fb',  '$tw',  '$comentarios', '$usuario',  '$date')";
+
+  mysqli_query($conectar,$sql);
 
   echo"<script language='JavaScript'>
           alert('Hemos registrado al nuevo contacto correctamente');
@@ -40,7 +42,4 @@ VALUES ('$gobierno',  '$estado',  '$dependencia',  '$web',  '$encargado',  '$car
   echo "<script>window.location=\"index.php\"</script>";
 
 }
-
-
-
 ?>

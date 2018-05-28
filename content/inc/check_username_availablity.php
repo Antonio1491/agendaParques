@@ -1,13 +1,16 @@
 <?php
 sleep(1);
-include('../conex.php');
+
+$conectar=mysqli_connect("localhost","anprorgm_admin","Admin_*2016","anprorgm_registros");
+mysqli_set_charset($conectar,"utf8");
+
 if($_REQUEST)
 {
 	$email 	= $_REQUEST['email'];
-	$query = "select * from todo where email = '".strtolower($email)."'";
-	$results = mysql_query( $query) or die('ok');
+	$query = "SELECT * FROM datos WHERE email = '".strtolower($email)."'";
+	$results = mysqli_query($conectar, $query) or die('ok');
 
-	if(mysql_num_rows(@$results) > 0) // not available
+	if(mysqli_num_rows(@$results) > 0) // not available
 	{
 		echo '<div id="Error">Usuario ya existente</div>';
 	}
