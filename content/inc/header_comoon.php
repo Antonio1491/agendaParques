@@ -17,7 +17,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
   </head>
-	<?php include "conex.php"; ?>
+	<?php  ?>
   <body>
     <header>
       <div class="row expanded">
@@ -32,7 +32,6 @@
         </div>
 				<div class="column">
           <?php
-
           echo "<p>Hola ".$_SESSION['user']. "</p>";
           ?>
         </div>

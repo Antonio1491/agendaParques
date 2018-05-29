@@ -40,13 +40,13 @@
 					<h3 class="text-center">Registro</h3>
 					<form method="POST" action="registrar.php">
 						<div id="Info" class="row"></div>
-						<div class="row">
-							<div class="column medium-2">
+            <div class="row">
+              <div class="column medium-2">
 								<label for=""><span>*</span>Categoría:</label>
 								<select name="categoria" required>
 								<?php
                 //$conectar=mysqli_connect("localhost","anprorgm_admin","Admin_*2016","anprorgm_registros");
-                $conectar=mysqli_connect("localhost","root","", "anpr");
+                $conectar=mysqli_connect("localhost","root","", "anprorgm_registros");
                 mysqli_set_charset($conectar,"utf8");
                 if(!$conectar){
                   die ("Error en la conexión a la Base de Datos");
@@ -61,6 +61,14 @@
 								 ?>
 								</select>
 							</div>
+              <div class="column medium-3">
+                <label for="">*Asignar Revista:</label>
+                <input type="radio" name="revista" value="1"> Sí
+                <input type="radio" name="revista" value="0"> No
+              </div>
+            </div>
+						<div class="row">
+
 							<div class="column">
 								<label for=""><span>*</span>Nombre:</label>
 								<input id="" name="nombre" type="text" class="validate" required autocomplete="off">

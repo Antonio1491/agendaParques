@@ -1,7 +1,7 @@
 <?php
 sleep(1);
 
-$conectar=mysqli_connect("localhost","anprorgm_admin","Admin_*2016","anprorgm_registros");
+$conectar=mysqli_connect("localhost","root","","anprorgm_registros");
 mysqli_set_charset($conectar,"utf8");
 
 if($_REQUEST)

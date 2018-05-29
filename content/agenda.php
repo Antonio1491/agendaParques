@@ -43,8 +43,8 @@ echo "
         <th>ESTADO</th>
 	      <th>E-MAIL</th>
 	      <th>TELÉFONO</th>
-        <th>VER MÁS</th>
-        <th>ELIMINAR</th>
+        <th></th>
+        <th></th>
     	</thead>
       <tbody>
       ";
@@ -56,8 +56,8 @@ foreach ($desplegarAgenda as $dato) {
   echo "<td>".$dato['estado']."</td>";
   echo "<td>".$dato['email']."</td>";
   echo "<td>".$dato['tel']."</td>";
-  echo "<td><a href='detalle.php?folio=".$dato['contact_id']."' id='mas'> Ver más</a></td>";
-  echo"<td><a href='inc/eliminar.php?folio=".$dato['contact_id']."' id='eliminar' class='eliminar'>Eliminar<a/></td></tr>";
+  echo "<td><a href='detalle.php?folio=".$dato['contact_id']."' id='mas' title='Ver más'><i class='fi-list'></i></a></td>";
+  echo"<td><a href='inc/eliminar.php?folio=".$dato['contact_id']."' id='eliminar' class='eliminar' title='Eliminar'><i class='fi-x'></i><a/></td></tr>";
 }
 
 // while($row=mysqli_fetch_array($resultado)){

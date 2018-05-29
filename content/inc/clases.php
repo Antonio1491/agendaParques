@@ -22,6 +22,20 @@ public function desplegarAgenda(){
 
   }
 
+  public function registrarContacto($categoria, $revista, $nombre, $email, $tel, $extencion, $cel,
+                                $empresa, $cargo, $web, $vigencia, $pais, $estado,
+                                $municipio, $colonia, $direccion, $cp, $fb, $tw,
+                                $comentarios, $date){
+
+    $registrar = $this->conexion_db->query("INSERT INTO datos
+                                            VALUES (null, '$categoria', '$nombre', '$email', '$tel', '$extencion', '$cel',
+                                            '$empresa', '$cargo', '$web', '$vigencia', '$pais', '$estado',  '$municipio',
+                                            '$colonia', '$direccion', '$cp', '$fb', '$tw', '$comentarios', '$date', '$revista')");
+
+    return $registrar;
+
+  }
+
 }
 
  ?>
