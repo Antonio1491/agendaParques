@@ -20,7 +20,7 @@ $sql= "SELECT *
 			echo'
 				<div id="Info" class="row"></div>
 				<div class="row">
-					<div class="column medium-1">
+					<div class="column medium-2">
 						<label>Folio:</label>
 						<input id="" value="'.$row[0].'" name="folio" type="text" class="validate" readonly="readonly"></input>
 					</div>
@@ -37,6 +37,13 @@ $sql= "SELECT *
 						 echo'
 						</select>
 					</div>
+					<div class="column medium-3">
+						<label for="">*Asignar Revista:</label>
+						<input type="radio" name="revista" value="1"> Sí
+						<input type="radio" name="revista" value="0" required> No
+					</div>
+				</div>
+				<div class="row">
 					<div class="column">
 						<label for=""><span>*</span>Nombre:</label>
 						<input id="" value="'.$row[2].'" name="nombre" type="text" class="validate" required autocomplete="off">

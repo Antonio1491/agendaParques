@@ -13,7 +13,7 @@ else{
 	tel ='$_POST[tel]', ext ='$_POST[extencion]', cel ='$_POST[cel]',
 	empresa ='$_POST[empresa]', cargo ='$_POST[cargo]', web ='$_POST[web]', vigencia ='$_POST[vigencia]',
 	pais ='$_POST[pais]', estado ='$_POST[estado]', municipio ='$_POST[municipio]',
-	colonia ='$_POST[colonia]', direccion ='$_POST[direccion]', cp ='$_POST[cp]', fb ='$_POST[fb]', tw ='$_POST[tw]', comentario ='$_POST[comentarios]'
+	colonia ='$_POST[colonia]', direccion ='$_POST[direccion]', cp ='$_POST[cp]', fb ='$_POST[fb]', tw ='$_POST[tw]', comentario ='$_POST[comentarios]', revista = '$_POST[revista]'
   WHERE contact_id = '$_POST[folio]' ";
 
 	if(!$resultado = $conectar->query($sql)){

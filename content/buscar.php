@@ -40,8 +40,8 @@ echo"<div class='text-center'>
         <td>".$row[4]."</td>
       	<td>".$row[6]."</td>
         <td>".$row[8]."</td>
-      	<td><a href='detalle.php?folio=".$row['1']."' id='vermas'>Ver más</a></td>
-      	<td><a href='inc/eliminar.php?folio=".$row['1']."' id='eliminar'>Eliminar<a/></td></tr>";
+      	<td><a href='detalle.php?folio=".$row['1']."' id='vermas' title='Ver más'><i class='fi-list'></a></td>
+      	<td><a href='inc/eliminar.php?folio=".$row['1']."' id='eliminar'title='Eliminar'><i class='fi-x'></i><a/></td></tr>";
       }
       echo "</table>";
   }

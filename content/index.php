@@ -64,7 +64,7 @@
               <div class="column medium-3">
                 <label for="">*Asignar Revista:</label>
                 <input type="radio" name="revista" value="1"> Sí
-                <input type="radio" name="revista" value="0"> No
+                <input type="radio" name="revista" value="0" required> No
               </div>
             </div>
 						<div class="row">

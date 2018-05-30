@@ -37,8 +37,7 @@
             die ("Error en la conexión a la Base de Datos");
           }
           else{
-            $sql= "SELECT b.nombre, a.contact_id, a.email, a.nombre, a.tel, a.ext, a.cel, a.empresa, a.cargo, a.web,
-      						a.vigencia, a.pais, a.estado, a.municipio, a.colonia, a.direccion, a.cp, a.fb, a.tw, a.comentario
+            $sql= "SELECT *
       						FROM datos AS a
       						LEFT JOIN categoria AS b ON b.categoria_id = a.categoria_id
       						WHERE a.contact_id = '$folio'";
@@ -51,16 +50,19 @@
                     <hr>
 
                     <div class='row column'>
-                      <span>Nombre: </span>".($fila[3])."
+                      <span>Nombre: </span>".($fila[2])."
                     </div>
                     <div class='row column'>
-                       <span>Categoría: </span> ".($fila[0])."
+                       <span>Categoría: </span> ".($fila[23])."
                     </div>
                     <div class='row column'>
-                      <span>Email: </span>".($fila[2])."
+                      <span>Email: </span>".($fila[3])."
                     </div>
                     <div class='row column'>
-                      <span>Teléfono: </span>".($fila[4])." <span> Ext.:</span> ".($fila[5])."
+                      <span>Teléfono: </span>".($fila[4])."
+                    </div>
+                    <div class='row column'>
+                      <span> Ext.:</span> ".($fila[5])."
                     </div>
                     <div class='row column'>
                       <span>Móvil: </span>".($fila[6])."
@@ -90,7 +92,10 @@
                       <span>Colonia: </span>".($fila[14])."
                     </div>
                     <div class='row column'>
-                      <span>Dirección:</span>".($fila[15])." <span>C.P.: </span>".($fila[16])."
+                      <span>Dirección:</span>".($fila[15])."
+                    </div>
+                    <div class='row column'>
+                      <span>C.P.: </span>".($fila[16])."
                     </div>
                     <div class='row column'>
                       <span>Facebook: </span>".($fila[17])."
@@ -101,11 +106,21 @@
                     <div class='row column'>
                       <span>Comentarios: </span>".($fila[19])."
                     </div>
+                    <br>
+                    <div class='row column'>
+                      <span id='revista'>Revista: </span>";
+                        if($fila[21] == 0){
+                          echo "<i class='fi-x'> </i>";
+                        }
+                        else{
+                          echo "<i class='fi-check'></i>";
+                        }
+                    echo"</div>
 
                     <hr><br>";
                     echo "
                         <div  class='row align-center'>
-                          <button type='button' onclick='editar(". $fila[1].")' class='button large'>Editar</button>
+                          <button type='button' onclick='editar(". $fila[1].")' class='button large'><i class='fi-clipboard-pencil'></i> Editar</button>
                         </div>
                         ";
                   }
