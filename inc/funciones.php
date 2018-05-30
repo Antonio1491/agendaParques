@@ -1,8 +1,8 @@
 <?php
 //verificamo el usuario y contraseña
 function login($nombre, $clave){
-   // $link = mysqli_connect('localhost', 'anprorg_admin', 'Admin_*2016','anprorg_registros');   // conexion internet
- $link = mysqli_connect('localhost', 'root', '','anpr');
+$link=mysqli_connect("mysql.hostinger.mx","u582611776_2","Admin_*2016","u582611776_agend");
+ // $link = mysqli_connect('localhost', 'root', '','anpr');
   $sql="SELECT * FROM usuarios WHERE nombre='$nombre' AND contrasena = '$clave'";
   $result=mysqli_query($link, $sql);
   $row = mysqli_fetch_array($result, MYSQLI_ASSOC);

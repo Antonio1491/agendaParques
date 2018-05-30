@@ -1,7 +1,7 @@
 <?php
 //conexion online
-//$conexion=mysqli_connect("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_registros" ) ;
-$conectar=mysqli_connect("localhost","root","", "anprorgm_registros");
+$conectar=mysqli_connect("mysql.hostinger.mx","u582611776_2","Admin_*2016","u582611776_agend");
+// $conectar=mysqli_connect("localhost","root","", "anprorgm_registros");
 mysqli_set_charset($conectar,"utf8");
 $sql= "SELECT *
 			FROM datos AS a

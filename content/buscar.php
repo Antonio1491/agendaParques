@@ -1,9 +1,9 @@
 <?php
 $buscar=$_GET['b']; //Asignamos a una variable local
 //conexion online
-//$conectar=mysqli_connect("localhost", "anprorgm_admin", "Admin_*2016", "anprorgm_registros" ) ;
+$conectar=mysqli_connect("mysql.hostinger.mx","u582611776_2","Admin_*2016","u582611776_agend");
 //conexión local
-$conectar=mysqli_connect("localhost","root","", "anprorgm_registros");;
+// $conectar=mysqli_connect("localhost","root","", "anprorgm_registros");
 mysqli_set_charset($conectar,"utf8");//solución al acento y las ñ
   $sql="SELECT b.nombre,  a.contact_id, a.email, a.nombre, a.tel, a.cel, a.empresa, a.web, a.estado FROM datos AS a
   LEFT JOIN categoria AS b ON b.categoria_id = a.categoria_id
